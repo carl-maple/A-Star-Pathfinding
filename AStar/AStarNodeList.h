@@ -4,25 +4,28 @@
 #include "Vector2Di.h"
 #include "AStarNode.h"
 
+#include "vector"
+
 class AStarMap;
 class AStarOpenList;
+class AStarWorker;
 
 class AStarNodeList
 {
 public:
-	AStarNodeList(const uint16 InSize);
-	~AStarNodeList();
+	AStarNodeList(const uint16 InSize, const AStarWorker* const InWorkerOwner);
 
 	const AStarNode& GetAStarNode(const uint16 InGridIndex) const;
 
-	void PopulateNeighbours(const uint16 InGridIndex, AStarOpenList* InOpenList, const AStarMap* const InMap, const SVector2Di& InGoalPos);
+	bool Populate(const int16 InGridIndex, const int16 InGoalIndex);
 
 	void CloseNode(const uint16 InGridIndex);
 
 private:
 	float ManhattanDistance(const SVector2Di& InCurrent, const SVector2Di& InGoal) const;
 
-	struct AStarNode* List;
+	std::vector<AStarNode> List;
 	uint16 NumberOfItems;
+	const AStarWorker* const WorkerOwner;
 };
 

@@ -2,18 +2,15 @@
 #include "AStarNode.h"
 #include "AStarMap.h"
 #include "AStarOpenList.h"
+#include "AStarWorker.h"
 
 #include <cmath>
 
-AStarNodeList::AStarNodeList(const uint16 InSize)
+AStarNodeList::AStarNodeList(const uint16 InSize, const AStarWorker* const InWorkerOwner)
 	: NumberOfItems(InSize)
+	, WorkerOwner(InWorkerOwner)
 {
-	List = new AStarNode[NumberOfItems];
-}
-
-AStarNodeList::~AStarNodeList()
-{
-	delete[] List;
+	List.resize(InSize);
 }
 
 const AStarNode& AStarNodeList::GetAStarNode(const uint16 InGridIndex) const
@@ -28,34 +25,21 @@ float AStarNodeList::ManhattanDistance(const SVector2Di& InCurrent, const SVecto
 	return 1.f * (DeltaX + DeltaY);
 }
 
-void AStarNodeList::PopulateNeighbours(const uint16 InGridIndex, AStarOpenList* InOpenList, const AStarMap* const InMap, const SVector2Di& InGoalPos)
+bool AStarNodeList::Populate(const int16 InGridIndex, const int16 InParentIndex)
 {
-	const SVector2Di TempGridPos = InMap->GetGridPosition(InGridIndex);
-	SVector2Di TempNeighbourGridPos = SVector2Di();
+	const AStarMap* const Map = WorkerOwner->GetMap();
 
-	for (uint16 NeighbourIndex = 0; NeighbourIndex < NAStarDefs::NUM_OF_NEIGHBOURS; NeighbourIndex++)
+	if (List[InGridIndex].State != EAStarNodeState::NONE)
 	{
-		TempNeighbourGridPos = TempGridPos + NeighbourDirections[NeighbourIndex];
-
-		if (InMap->IsGridPositionValid(TempNeighbourGridPos) == false)
-		{
-			continue;
-		}
-
-		const uint16 NeighbourGridIndex = InMap->GetGridIndex(TempNeighbourGridPos);
-
-		if (List[NeighbourGridIndex].State != EAStarNodeState::NONE)
-		{
-			continue;
-		}
-
-		List[NeighbourGridIndex].Neighbours[NeighbourIndex] = NeighbourGridIndex;
-		List[NeighbourGridIndex].Cost = ManhattanDistance(TempNeighbourGridPos, InGoalPos);
-		List[NeighbourGridIndex].State = EAStarNodeState::OPEN;
-		List[NeighbourGridIndex].Parent = InGridIndex;
-
-		InOpenList->Add(NeighbourGridIndex);
+		return false;
 	}
+
+	List[InGridIndex].Cost = ManhattanDistance(Map->GetGridPosition(InGridIndex)
+		, WorkerOwner->GetGoalPos());
+	List[InGridIndex].State = EAStarNodeState::OPEN;
+	List[InGridIndex].Parent = InParentIndex;
+
+	return true;
 }
 
 void AStarNodeList::CloseNode(const uint16 InGridIndex)

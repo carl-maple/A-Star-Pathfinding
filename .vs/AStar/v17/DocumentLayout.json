@@ -1,0 +1,273 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarOpenList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarOpenList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNodeList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarNodeList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNodeList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarNodeList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarWorker.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarWorker.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarWorker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarWorker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\pplwin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarOpenList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarOpenList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNode.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarNode.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\memory||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F611499-3880-4A8D-8A3B-98B147C500C4}|AStar\\AStar.vcxproj|solutionrelative:AStar\\AStarMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AStarMap.cpp",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarMap.cpp",
+              "RelativeDocumentMoniker": "AStar\\AStarMap.cpp",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarMap.cpp",
+              "RelativeToolTip": "AStar\\AStarMap.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-11T18:55:00.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AStarUtils.h",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarUtils.h",
+              "RelativeDocumentMoniker": "AStar\\AStarUtils.h",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarUtils.h",
+              "RelativeToolTip": "AStar\\AStarUtils.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-11T09:40:36.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AStarUtils.cpp",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarUtils.cpp",
+              "RelativeDocumentMoniker": "AStar\\AStarUtils.cpp",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarUtils.cpp",
+              "RelativeToolTip": "AStar\\AStarUtils.cpp",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAAQAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-11T09:40:20.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "pplwin.h",
+              "DocumentMoniker": "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\pplwin.h",
+              "ToolTip": "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\pplwin.h",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAD4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T17:47:46.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AStarNodeList.h",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNodeList.h",
+              "RelativeDocumentMoniker": "AStar\\AStarNodeList.h",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNodeList.h",
+              "RelativeToolTip": "AStar\\AStarNodeList.h",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAABMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T17:31:23.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "memory",
+              "DocumentMoniker": "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\memory",
+              "ToolTip": "D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\memory",
+              "ViewState": "AQIAAFwNAAAAAAAAAAAMwGkNAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-10T17:28:42.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AStarNodeList.cpp",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNodeList.cpp",
+              "RelativeDocumentMoniker": "AStar\\AStarNodeList.cpp",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNodeList.cpp",
+              "RelativeToolTip": "AStar\\AStarNodeList.cpp",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACAAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T17:00:03.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AStarOpenList.h",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarOpenList.h",
+              "RelativeDocumentMoniker": "AStar\\AStarOpenList.h",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarOpenList.h",
+              "RelativeToolTip": "AStar\\AStarOpenList.h",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAA4AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T16:37:08.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AStarOpenList.cpp",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarOpenList.cpp",
+              "RelativeDocumentMoniker": "AStar\\AStarOpenList.cpp",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarOpenList.cpp",
+              "RelativeToolTip": "AStar\\AStarOpenList.cpp",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAuwHkAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T16:33:51.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AStarWorker.cpp",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarWorker.cpp",
+              "RelativeDocumentMoniker": "AStar\\AStarWorker.cpp",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarWorker.cpp",
+              "RelativeToolTip": "AStar\\AStarWorker.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T16:26:43.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AStarWorker.h",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarWorker.h",
+              "RelativeDocumentMoniker": "AStar\\AStarWorker.h",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarWorker.h",
+              "RelativeToolTip": "AStar\\AStarWorker.h",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAABwAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T16:24:04.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AStarNode.h",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNode.h",
+              "RelativeDocumentMoniker": "AStar\\AStarNode.h",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarNode.h",
+              "RelativeToolTip": "AStar\\AStarNode.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T16:12:38.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AStarMap.h",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarMap.h",
+              "RelativeDocumentMoniker": "AStar\\AStarMap.h",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStarMap.h",
+              "RelativeToolTip": "AStar\\AStarMap.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAMwA8AAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T16:11:12.577Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "51a77d44-8d4f-4185-a373-a5bb53d984f3",
+        "Display": 1,
+        "X": 729,
+        "Y": -37,
+        "Width": 2234,
+        "Height": 1126,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AStar.cpp",
+              "DocumentMoniker": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStar.cpp",
+              "RelativeDocumentMoniker": "AStar\\AStar.cpp",
+              "ToolTip": "C:\\Users\\Carl-Oscar\\Documents\\GitHubClean\\A-Star-Pathfinding\\AStar\\AStar.cpp",
+              "RelativeToolTip": "AStar\\AStar.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T16:09:57.757Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

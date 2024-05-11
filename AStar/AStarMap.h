@@ -1,19 +1,20 @@
 #pragma once
 
-#include <vector>
-#include <random>
-
 #include "Types.h"
 #include "AStarDefs.h"
 #include "Vector2Di.h"
 
+#include <vector>
+#include <random>
+
 constexpr SVector2Di NeighbourDirections[NAStarDefs::NUM_OF_NEIGHBOURS] = { SVector2Di(-1, 0), SVector2Di(1, 0), SVector2Di(0, -1), SVector2Di(0, 1) };
 
+// Keeps track of the map
+// Handles converstion between GridIndex -> GridPos and vice vers.
 class AStarMap
 {
 public:
-	AStarMap(const char* InMap, const int32 InSizeX, const int32 InSizeY);
-	~AStarMap();
+	AStarMap(const std::vector<char>& InMap, const int32 InSizeX, const int32 InSizeY);
 
 	uint8 GetValueAtIndex(const uint16 InGridIndex) const;
 
@@ -28,14 +29,15 @@ public:
 
 	bool IsGridPositionValid(const SVector2Di& InGridPos) const;
 
-	static void PrintMap(const char* InMap, const int32 InSizeX, const int32 InSizeY);
+	static void PrintMap(const std::vector<char> InPathDrawMap
+		, const int32 InSizeX, const int32 InSizeY);
 
 	const SVector2Di& GetMapSize() const { return MapSize; }
 	
 private:
 	SVector2Di MapSize;
 
-	char* Map = nullptr;
+	std::vector<char> Map;
 
 	std::vector<int32> ValidPoints;
 };

@@ -20,7 +20,6 @@ namespace NStarNodeDefs
 struct AStarNode
 {
 	float Cost = -1;
-	int32 Neighbours[NAStarDefs::NUM_OF_NEIGHBOURS];
 	EAStarNodeState State = EAStarNodeState::NONE;
 	uint16 Parent = NStarNodeDefs::INVALID_INDEX;
 };

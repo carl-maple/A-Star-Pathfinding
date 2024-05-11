@@ -10,6 +10,7 @@
 
 class AStarMap;
 
+// Takes requests and asynchronously finds a path
 class AStarWorker
 {
 public:
@@ -17,10 +18,15 @@ public:
 	AStarWorker(const AStarMap* const InMap);
 
 	bool FindPath(const SVector2Di& InStartPos, const SVector2Di& InGoalPos);
-	int32 GetResult(uint16* OutPath);
+	int32 GetResult(std::vector<uint16>& OutPath);
 
 	const SVector2Di& GetStartPos() const { return StartPos; }
 	const SVector2Di& GetGoalPos() const { return GoalPos; }
+
+	const std::unique_ptr<AStarOpenList>& GetOpenList() const { return OpenList; }
+	const std::unique_ptr<AStarNodeList>& GetNodeList() const { return NodeList; }
+
+	const AStarMap* const GetMap() const { return Map; }
 
 private:
 	bool DoWork();

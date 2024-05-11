@@ -4,12 +4,10 @@
 #include <random>
 #include <iostream>
 
-AStarMap::AStarMap(const char* InMap, const int32 InSizeX, const int32 InSizeY)
+AStarMap::AStarMap(const std::vector<char>& InMap, const int32 InSizeX, const int32 InSizeY)
 	: MapSize(InSizeX, InSizeY)
+	, Map(InMap)
 {
-	Map = new char[MapSize.x * MapSize.y];
-	std::copy(InMap, InMap + MapSize.x * MapSize.y, Map);
-
 	for (size_t i = 0; i < MapSize.x * MapSize.y; i++)
 	{
 		if (Map[i] == '0')
@@ -17,11 +15,6 @@ AStarMap::AStarMap(const char* InMap, const int32 InSizeX, const int32 InSizeY)
 			ValidPoints.push_back(i);
 		}
 	}
-}
-
-AStarMap::~AStarMap()
-{
-	delete[] Map;
 }
 
 uint16 AStarMap::GetGridIndex(const SVector2Di& InGridPos) const
@@ -59,14 +52,15 @@ bool AStarMap::IsGridPositionValid(const SVector2Di& InGridPos) const
 		&& Map[GetGridIndex(InGridPos)] == '0');
 }
 
-void AStarMap::PrintMap(const char* InMap, const int32 InSizeX, const int32 InSizeY)
+void AStarMap::PrintMap(const std::vector<char> InPathDrawMap
+	, const int32 InSizeX, const int32 InSizeY)
 {
 	for (int16 IndexY = 0; IndexY < InSizeY; IndexY++)
 	{
 		for (int16 IndexX = 0; IndexX < InSizeX; IndexX++)
 		{
 			const uint16 GridIndex = GetGridIndex(IndexX, IndexY, InSizeY);
-			std::cout << std::string(1, InMap[GridIndex]);
+			std::cout << std::string(1, InPathDrawMap[GridIndex]);
 		}
 
 		std::cout << std::endl;

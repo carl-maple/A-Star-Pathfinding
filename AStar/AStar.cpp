@@ -9,62 +9,13 @@
 #include "AStarUtils.h"
 #include "AStarWorker.h"
 
-void PrintResult(int32 PathLength, AStarMap* Map
-    , const std::unique_ptr<AStarWorker>& Worker, uint16* Path
-    , char* Temp)
-{
-    if (PathLength > 0)
-    {
-        const uint16 StartGridIndex = Map->GetGridIndex(Worker->GetStartPos());
-        const uint16 GoalGridIndex = Map->GetGridIndex(Worker->GetGoalPos());
-
-        std::cout << "StartGridIndex: " << StartGridIndex << std::endl;
-        std::cout << "GoalGridIndex: " << GoalGridIndex << std::endl;
-
-        for (int32 PathIndex = PathLength - 1; PathIndex >= 0; PathIndex--)
-        {
-            if (StartGridIndex == Path[PathIndex])
-            {
-                Temp[Path[PathIndex]] = 'S';
-            }
-            else if (GoalGridIndex == Path[PathIndex])
-            {
-                Temp[Path[PathIndex]] = 'G';
-            }
-            else
-            {
-                Temp[Path[PathIndex]] = '*';
-            }
-        }
-
-        AStarMap::PrintMap(Temp, Map->GetMapSize().x, Map->GetMapSize().y);
-    }
-    else
-    {
-        const uint16 StartGridIndex = Map->GetGridIndex(Worker->GetStartPos());
-        const uint16 GoalGridIndex = Map->GetGridIndex(Worker->GetGoalPos());
-
-        std::cout << "StartGridIndex: " << StartGridIndex << std::endl;
-        std::cout << "GoalGridIndex: " << GoalGridIndex << std::endl;
-
-        Temp[StartGridIndex] = 'S';
-        Temp[GoalGridIndex] = 'G';
-
-        AStarMap::PrintMap(Temp, Map->GetMapSize().x, Map->GetMapSize().y);
-
-        std::cout << "Failed to find" << std::endl;
-    }
-
-    std::cout << std::endl;
-}
-
 int main()
 {
     constexpr uint16 MAPSIZEX = 10;
     constexpr uint16 MAPSIZEY = 10;
+    constexpr uint16 NUMBER_OF_NODES = MAPSIZEX * MAPSIZEY;
 
-    char* InputMap = new char[MAPSIZEX * MAPSIZEY]
-    {
+    const std::vector<char> InputMap = {
         '0', '1', '0', '0', '0', '0', '1', '0', '0', '0',
         '0', '1', '0', '1', '0', '0', '1', '0', '1', '0',
         '0', '0', '0', '1', '0', '0', '0', '0', '1', '0',
@@ -77,21 +28,20 @@ int main()
         '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
     };
 
-    uint16* Path = new uint16[MAPSIZEX * MAPSIZEY];
+    std::vector<char> PathDrawMap = InputMap;
+
+    std::vector<uint16> Path(NUMBER_OF_NODES);
     int32 PathLength = 0;
 
-    char* PathDrawMap = new char[MAPSIZEX * MAPSIZEY];
-    std::copy(InputMap, InputMap + MAPSIZEX * MAPSIZEY, PathDrawMap);
+    std::unique_ptr<AStarMap> Map = std::make_unique<AStarMap>(InputMap, MAPSIZEX, MAPSIZEY);
     
-    AStarMap* Map = new AStarMap(InputMap, MAPSIZEX, MAPSIZEY);
-    
-    bool RunSingle = false;
+    bool RunSingle = true;
     if (RunSingle)
     {
-        std::unique_ptr<AStarWorker> Worker = std::make_unique<AStarWorker>(Map);
+        std::unique_ptr<AStarWorker> Worker = std::make_unique<AStarWorker>(Map.get());
         Worker->FindPath(Map->GetGridPosition(96), Map->GetGridPosition(72));
         PathLength = Worker->GetResult(Path);
-        PrintResult(PathLength, Map, Worker, Path, PathDrawMap);
+        AStarUtils::PrintResult(PathLength, Map, Worker, Path, PathDrawMap);
     }
     else
     {
@@ -100,7 +50,7 @@ int main()
         std::generate(
             std::begin(Workers),
             std::end(Workers),
-            [Map]() { return std::make_unique<AStarWorker>(Map); }
+            [Map = move(Map)]() { return std::make_unique<AStarWorker>(Map.get()); }
         );
 
         for (const auto& Worker : Workers)
@@ -114,13 +64,9 @@ int main()
             std::cout << std::endl;
 
             PathLength = Worker->GetResult(Path);
-            std::copy(InputMap, InputMap + MAPSIZEX * MAPSIZEY, PathDrawMap);
+            PathDrawMap = InputMap;
 
-            PrintResult(PathLength, Map, Worker, Path, PathDrawMap);
+            AStarUtils::PrintResult(PathLength, Map, Worker, Path, PathDrawMap);
         } 
     }
-
-    delete[] Path;
-    delete[] PathDrawMap;
-    delete Map;
 }
