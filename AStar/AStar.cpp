@@ -67,6 +67,8 @@ int main()
     }
     else
     {
+        int32 currentResult = 0;
+
         constexpr uint16 NUM_OF_WORKERS = 4;
         std::array< std::unique_ptr<AStarWorker>, NUM_OF_WORKERS> Workers;
         std::generate(
@@ -90,7 +92,8 @@ int main()
                 PathLength = Worker->GetResult(Path);
                 PathDrawMap = InputMap;
 
-                AStarUtils::WriteResults(PathLength, Map, Worker, Path, PathDrawMap);
+                AStarUtils::WriteResults(PathLength, Map, Worker, Path, PathDrawMap, currentResult);
+                currentResult++;
             }
         } 
     }
