@@ -14,23 +14,27 @@ constexpr SVector2Di NeighbourDirections[NAStarDefs::NUM_OF_NEIGHBOURS] = { SVec
 class AStarMap
 {
 public:
-	AStarMap(const std::vector<char>& InMap, const int32 InSizeX, const int32 InSizeY);
+	AStarMap(const std::vector<char>& InMap, const uint32 InSizeX, const uint32 InSizeY);
 
 	uint8 GetValueAtIndex(const uint16 InGridIndex) const;
 
-	uint16 GetRandomValidGridIndex() const;
+	uint32 GetRandomValidGridIndex() const;
 
-	uint16 GetGridIndex(const SVector2Di& InGridPos) const;
-	static uint16 GetGridIndex(const int16 InGridPosX, const int16 InGridPosY, const int32 InSizeY);
-	uint16 GetGridIndex(const int16 InGridPosX, const int16 InGridPosY) const;
+	void GetRandomValidStartAndEndGridIndex(uint32& OutStartGridIndex, uint32& OutEndGridIndex) const;
 
-	SVector2Di GetGridPosition(const uint16 InGridIndex) const;
-	void GetGridPosition(const uint16 InGridIndex, SVector2Di& OutGridPos) const;
+	uint32 GetGridIndex(const SVector2Di& InGridPos) const;
+	static uint32 GetGridIndex(const int16 InGridPosX, const int16 InGridPosY, const uint32 InSizeY);
+	uint32 GetGridIndex(const int16 InGridPosX, const int16 InGridPosY) const;
+
+	SVector2Di GetGridPosition(const uint32 InGridIndex) const;
+	void GetGridPosition(const uint32 InGridIndex, SVector2Di& OutGridPos) const;
 
 	bool IsGridPositionValid(const SVector2Di& InGridPos) const;
 
 	static void PrintMap(const std::vector<char> InPathDrawMap
-		, const int32 InSizeX, const int32 InSizeY);
+		, const uint32 InSizeX, const uint32 InSizeY);
+
+	static void WriteMapToFile(const std::vector<char> InPathDrawMap, const uint32 InSizeX, const uint32 InSizeY, int32 InCurrentIteration);
 
 	const SVector2Di& GetMapSize() const { return MapSize; }
 	
@@ -39,6 +43,6 @@ private:
 
 	std::vector<char> Map;
 
-	std::vector<int32> ValidPoints;
+	std::vector<uint32> ValidPoints;
 };
 

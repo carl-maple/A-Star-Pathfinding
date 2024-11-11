@@ -13,19 +13,21 @@ class AStarWorker;
 class AStarNodeList
 {
 public:
-	AStarNodeList(const uint16 InSize, const AStarWorker* const InWorkerOwner);
+	AStarNodeList(const uint32 InSize, const AStarWorker* const InWorkerOwner);
 
-	const AStarNode& GetAStarNode(const uint16 InGridIndex) const;
+	const AStarNode& GetAStarNode(const uint32 InGridIndex) const;
 
-	bool Populate(const int16 InGridIndex, const int16 InGoalIndex);
+	bool Populate(const uint32 InGridIndex, const uint32 InGoalIndex);
 
-	void CloseNode(const uint16 InGridIndex);
+	void CloseNode(const uint32 InGridIndex);
+
+	void Reset();
 
 private:
 	float ManhattanDistance(const SVector2Di& InCurrent, const SVector2Di& InGoal) const;
 
 	std::vector<AStarNode> List;
-	uint16 NumberOfItems;
+	uint32 NumberOfItems;
 	const AStarWorker* const WorkerOwner;
 };
 

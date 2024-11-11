@@ -14,13 +14,20 @@ enum class EAStarNodeState
 
 namespace NStarNodeDefs
 {
-	constexpr uint16 INVALID_INDEX = std::numeric_limits<uint16>::max();
+	constexpr uint32 INVALID_INDEX = std::numeric_limits<uint32>::max();
 }
 
 struct AStarNode
 {
+	void Reset()
+	{
+		Cost = -1;
+		State = EAStarNodeState::NONE;
+		Parent = NStarNodeDefs::INVALID_INDEX;
+	}
+
 	float Cost = -1;
 	EAStarNodeState State = EAStarNodeState::NONE;
-	uint16 Parent = NStarNodeDefs::INVALID_INDEX;
+	uint32 Parent = NStarNodeDefs::INVALID_INDEX;
 };
 

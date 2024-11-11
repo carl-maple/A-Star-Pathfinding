@@ -17,8 +17,10 @@ public:
 
 	AStarWorker(const AStarMap* const InMap);
 
+	bool FindPathAsync(const SVector2Di& InStartPos, const SVector2Di& InGoalPos);
 	bool FindPath(const SVector2Di& InStartPos, const SVector2Di& InGoalPos);
-	int32 GetResult(std::vector<uint16>& OutPath);
+
+	uint32 GetResult(std::vector<uint32>& OutPath);
 
 	const SVector2Di& GetStartPos() const { return StartPos; }
 	const SVector2Di& GetGoalPos() const { return GoalPos; }

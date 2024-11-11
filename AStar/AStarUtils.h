@@ -11,13 +11,20 @@ class AStarWorker;
 
 namespace AStarUtils
 {
-	int32 FillPath(const uint16 FirstGridIndex
+	uint32 FillPath(const uint32 FirstGridIndex
 		, const std::unique_ptr<AStarNodeList>& InNodeList
-		, std::vector<uint16>& OutPath);
+		, std::vector<uint32>& OutPath);
 
 	void PrintResult(const int32 PathLength
 		, const std::unique_ptr<AStarMap>& InMap
 		, const std::unique_ptr<AStarWorker>& InWorker
-		, const std::vector<uint16>& InPath, std::vector<char> InPathDrawMap);
+		, const std::vector<uint32>& InPath, std::vector<char> InPathDrawMap);
+
+	void WriteResults(const int32 InPathLength
+		, const std::unique_ptr<AStarMap>& InMap
+		, const std::unique_ptr<AStarWorker>& InWorker
+		, const std::vector<uint32>& InPath, std::vector<char> InPathDrawMap, int32 InCurrentIteration);
+
+	std::vector<char> RandomizeMap(const uint32 InSizeX, const uint32 InSizeY);
 };
 

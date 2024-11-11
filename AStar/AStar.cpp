@@ -9,14 +9,20 @@
 #include "AStarUtils.h"
 #include "AStarWorker.h"
 
+
 int main()
 {
-    constexpr uint16 MAPSIZEX = 10;
-    constexpr uint16 MAPSIZEY = 10;
-    constexpr uint16 NUMBER_OF_NODES = MAPSIZEX * MAPSIZEY;
+    constexpr uint32 MAPSIZEX = 1000;
+    constexpr uint32 MAPSIZEY = 1000;
+    constexpr uint32 NUMBER_OF_NODES = (MAPSIZEX * MAPSIZEY) / 2;
 
+    constexpr bool PrintOutResults = false;
+    constexpr uint32 NumberOfPathfindings = 100000;
+    constexpr bool RunSingleThreaded = false;
+
+    /*
     const std::vector<char> InputMap = {
-        '0', '1', '0', '0', '0', '0', '1', '0', '0', '0',
+        '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
         '0', '1', '0', '1', '0', '0', '1', '0', '1', '0',
         '0', '0', '0', '1', '0', '0', '0', '0', '1', '0',
         '1', '1', '1', '1', '0', '1', '1', '1', '1', '0',
@@ -27,21 +33,37 @@ int main()
         '1', '1', '1', '1', '0', '1', '1', '1', '1', '0',
         '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
     };
+    */
+
+    const std::vector<char> InputMap = AStarUtils::RandomizeMap(MAPSIZEX,MAPSIZEY);
 
     std::vector<char> PathDrawMap = InputMap;
 
-    std::vector<uint16> Path(NUMBER_OF_NODES);
+    std::vector<uint32> Path(NUMBER_OF_NODES);
     int32 PathLength = 0;
 
     std::unique_ptr<AStarMap> Map = std::make_unique<AStarMap>(InputMap, MAPSIZEX, MAPSIZEY);
+
+    uint32 StartGridIndex;
+    uint32 EndGridIndex;
+
+    Map->GetRandomValidStartAndEndGridIndex(StartGridIndex, EndGridIndex);
     
-    bool RunSingle = true;
-    if (RunSingle)
+    if (RunSingleThreaded)
     {
         std::unique_ptr<AStarWorker> Worker = std::make_unique<AStarWorker>(Map.get());
-        Worker->FindPath(Map->GetGridPosition(96), Map->GetGridPosition(72));
-        PathLength = Worker->GetResult(Path);
-        AStarUtils::PrintResult(PathLength, Map, Worker, Path, PathDrawMap);
+        for (int32 i = 0; i < NumberOfPathfindings; ++i)
+        {
+            bool Result = Worker->FindPath(Map->GetGridPosition(StartGridIndex), Map->GetGridPosition(EndGridIndex));
+            if (Result)
+            {
+                if (PrintOutResults)
+                {
+                    PathLength = Worker->GetResult(Path);
+                    AStarUtils::WriteResults(PathLength, Map, Worker, Path, PathDrawMap, i);
+                }
+            }
+        }
     }
     else
     {
@@ -50,23 +72,26 @@ int main()
         std::generate(
             std::begin(Workers),
             std::end(Workers),
-            [Map = move(Map)]() { return std::make_unique<AStarWorker>(Map.get()); }
+            [Map = Map.get()]() { return std::make_unique<AStarWorker>(Map); }
         );
 
         for (const auto& Worker : Workers)
         {
-            Worker->FindPath(Map->GetGridPosition(Map->GetRandomValidGridIndex())
+            Worker->FindPathAsync(Map->GetGridPosition(Map->GetRandomValidGridIndex())
                 , Map->GetGridPosition(Map->GetRandomValidGridIndex()));
         }
 
         for (const auto& Worker : Workers)
         {
-            std::cout << std::endl;
+            if (PrintOutResults)
+            {
+                std::cout << std::endl;
 
-            PathLength = Worker->GetResult(Path);
-            PathDrawMap = InputMap;
+                PathLength = Worker->GetResult(Path);
+                PathDrawMap = InputMap;
 
-            AStarUtils::PrintResult(PathLength, Map, Worker, Path, PathDrawMap);
+                AStarUtils::WriteResults(PathLength, Map, Worker, Path, PathDrawMap);
+            }
         } 
     }
 }

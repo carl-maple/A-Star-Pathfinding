@@ -20,7 +20,7 @@ AStarOpenList::AStarOpenList(const uint32 InSize, const AStarWorker* const InWor
     OpenList.resize(InSize);
 }
 
-void AStarOpenList::Add(const uint16 InGridIndex)
+void AStarOpenList::Add(const uint32 InGridIndex)
 {
     NumberOfItems++;
     OpenList[NumberOfItems] = InGridIndex;
@@ -60,8 +60,8 @@ void AStarOpenList::PopFirst()
     OpenList[1] = OpenList[NumberOfItems];
     NumberOfItems--;
 
-    int32 Current = 1;
-    int32 Parent = 0;
+    uint32 Current = 1;
+    uint32 Parent = 0;
 
     // Binary sorting implementation. 
     // OpenList starts counting from 1 to make the implementation cleaner.
@@ -111,7 +111,7 @@ void AStarOpenList::PopFirst()
     } 
 }
 
-void AStarOpenList::PopulateNeighbours(const uint16 InGridIndex, const SVector2Di& InGoalPos)
+void AStarOpenList::PopulateNeighbours(const uint32 InGridIndex, const SVector2Di& InGoalPos)
 {
     const AStarMap* const Map = WorkerOwner->GetMap();
     const auto& NodeList = WorkerOwner->GetNodeList();
@@ -119,7 +119,7 @@ void AStarOpenList::PopulateNeighbours(const uint16 InGridIndex, const SVector2D
     const SVector2Di TempGridPos = Map->GetGridPosition(InGridIndex);
     SVector2Di TempNeighbourGridPos = SVector2Di();
 
-    for (uint16 NeighbourIndex = 0; NeighbourIndex < NAStarDefs::NUM_OF_NEIGHBOURS; NeighbourIndex++)
+    for (uint32 NeighbourIndex = 0; NeighbourIndex < NAStarDefs::NUM_OF_NEIGHBOURS; NeighbourIndex++)
     {
         TempNeighbourGridPos = TempGridPos + NeighbourDirections[NeighbourIndex];
 
@@ -129,7 +129,7 @@ void AStarOpenList::PopulateNeighbours(const uint16 InGridIndex, const SVector2D
             continue;
         }
 
-        const uint16 NeighbourGridIndex = Map->GetGridIndex(TempNeighbourGridPos);
+        const uint32 NeighbourGridIndex = Map->GetGridIndex(TempNeighbourGridPos);
 
         // Populate the node with data
         if (NodeList->Populate(NeighbourGridIndex, InGridIndex))

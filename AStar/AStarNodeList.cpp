@@ -6,26 +6,26 @@
 
 #include <cmath>
 
-AStarNodeList::AStarNodeList(const uint16 InSize, const AStarWorker* const InWorkerOwner)
+AStarNodeList::AStarNodeList(const uint32 InSize, const AStarWorker* const InWorkerOwner)
 	: NumberOfItems(InSize)
 	, WorkerOwner(InWorkerOwner)
 {
 	List.resize(InSize);
 }
 
-const AStarNode& AStarNodeList::GetAStarNode(const uint16 InGridIndex) const
+const AStarNode& AStarNodeList::GetAStarNode(const uint32 InGridIndex) const
 {
 	return List[InGridIndex];
 }
 
 float AStarNodeList::ManhattanDistance(const SVector2Di& InCurrent, const SVector2Di& InGoal) const
 {
-	const uint8 DeltaX = std::abs(InCurrent.x - InGoal.x);
-	const uint8 DeltaY = std::abs(InCurrent.y - InGoal.y);
+	const int32 DeltaX = std::abs(InCurrent.x - InGoal.x);
+	const int32 DeltaY = std::abs(InCurrent.y - InGoal.y);
 	return 1.f * (DeltaX + DeltaY);
 }
 
-bool AStarNodeList::Populate(const int16 InGridIndex, const int16 InParentIndex)
+bool AStarNodeList::Populate(const uint32 InGridIndex, const uint32 InParentIndex)
 {
 	const AStarMap* const Map = WorkerOwner->GetMap();
 
@@ -42,7 +42,15 @@ bool AStarNodeList::Populate(const int16 InGridIndex, const int16 InParentIndex)
 	return true;
 }
 
-void AStarNodeList::CloseNode(const uint16 InGridIndex)
+void AStarNodeList::CloseNode(const uint32 InGridIndex)
 {
 	List[InGridIndex].State = EAStarNodeState::CLOSED;
+}
+
+void AStarNodeList::Reset()
+{
+	for (AStarNode& Node : List)
+	{
+		Node.Reset();
+	}
 }

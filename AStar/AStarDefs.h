@@ -4,5 +4,5 @@
 
 namespace NAStarDefs
 {
-	constexpr uint8 NUM_OF_NEIGHBOURS = 4;
+	constexpr uint32 NUM_OF_NEIGHBOURS = 4;
 }
