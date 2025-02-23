@@ -39,3 +39,12 @@
 *.idb
 *.pdb
 *.txt
+*.iobj
+*.ipdb
+*.ipch
+*.vsidx
+*.vsidx
+*.vsidx
+/.vs/AStar/v17
+/.vs/AStar/v17
+.vs/AStar/v17/.suo
