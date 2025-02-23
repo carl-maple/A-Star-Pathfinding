@@ -22,11 +22,8 @@ void InitLogger()
 #if DEBUG
     auto MaxSize = 1048576 * 50;
     auto MaxFiles = 3;
-#ifdef NEW_ASTAR_IMPL
-    auto logger = spdlog::rotating_logger_mt("basic_logger", "logs/new-log.txt", DEBUG, MaxFiles);
-#else
-    auto logger = spdlog::rotating_logger_mt("basic_logger", "logs/old-log.txt", DEBUG, MaxFiles);
-#endif // NEW_ASTAR_IMPL
+
+    auto logger = spdlog::rotating_logger_mt("basic_logger", "logs/log.txt", DEBUG, MaxFiles);
 #endif
 }
 

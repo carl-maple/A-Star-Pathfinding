@@ -20,11 +20,7 @@ uint32 AStarUtils::FillPath(const uint32 FirstGridIndex
     {
         OutPath[PathIndex] = PathGridIndex;
         PathIndex++;
-#ifdef NEW_ASTAR_IMPL
-        PathGridIndex = InNodeList->GetAStarNode().Parent[PathGridIndex];
-#else
         PathGridIndex = InNodeList->GetAStarNode(PathGridIndex).Parent;
-#endif
     }
 
     return PathIndex;
@@ -38,9 +34,6 @@ void AStarUtils::PrintResult(const int32 InPathLength, const std::unique_ptr<ASt
     {
         const uint32 StartGridIndex = InMap->GetGridIndex(InWorker->GetStartPos());
         const uint32 GoalGridIndex = InMap->GetGridIndex(InWorker->GetGoalPos());
-
-        //std::cout << "StartGridIndex: " << StartGridIndex << std::endl;
-        //std::cout << "GoalGridIndex: " << GoalGridIndex << std::endl;
 
         for (int32 PathIndex = InPathLength - 1; PathIndex >= 0; PathIndex--)
         {
@@ -65,18 +58,11 @@ void AStarUtils::PrintResult(const int32 InPathLength, const std::unique_ptr<ASt
         const uint32 StartGridIndex = InMap->GetGridIndex(InWorker->GetStartPos());
         const uint32 GoalGridIndex = InMap->GetGridIndex(InWorker->GetGoalPos());
 
-        //std::cout << "StartGridIndex: " << StartGridIndex << std::endl;
-        //std::cout << "GoalGridIndex: " << GoalGridIndex << std::endl;
-
         InPathDrawMap[StartGridIndex] = 'S';
         InPathDrawMap[GoalGridIndex] = 'G';
 
         AStarMap::PrintMap(InPathDrawMap, InMap->GetMapSize().x, InMap->GetMapSize().y);
-
-        //std::cout << "Failed to find" << std::endl;
     }
-
-    //std::cout << std::endl;
 }
 
 void AStarUtils::WriteResults(const int32 InPathLength, const std::unique_ptr<AStarMap>& InMap
@@ -87,10 +73,6 @@ void AStarUtils::WriteResults(const int32 InPathLength, const std::unique_ptr<AS
     {
         const uint32 StartGridIndex = InMap->GetGridIndex(InWorker->GetStartPos());
         const uint32 GoalGridIndex = InMap->GetGridIndex(InWorker->GetGoalPos());
-
-        //std::cout << "Iteration: " << InCurrentIteration << std::endl;
-        //std::cout << "StartGridIndex: " << StartGridIndex << std::endl;
-        //std::cout << "GoalGridIndex: " << GoalGridIndex << std::endl;
 
         for (int32 PathIndex = InPathLength - 1; PathIndex >= 0; PathIndex--)
         {
@@ -109,11 +91,8 @@ void AStarUtils::WriteResults(const int32 InPathLength, const std::unique_ptr<AS
         }
 
         std::ofstream File;
-#ifdef NEW_ASTAR_IMPL
-        File.open("new_result_" + std::to_string(InCurrentIteration) + ".txt");
-#else
-        File.open("old_result_" + std::to_string(InCurrentIteration) + ".txt");
-#endif
+
+        File.open("result_" + std::to_string(InCurrentIteration) + ".txt");
 
         AStarMap::WriteMapToFile(File, InPathDrawMap, InMap->GetMapSize().x, InMap->GetMapSize().y);
 
@@ -165,7 +144,7 @@ void AStarUtils::GenerateScenarios(const uint32 ScenariosToGenerate, const uint3
     }
 }
 
-std::vector<char> AStarUtils::ReadScenario(const std::string InFileName, uint32& OutStartGridIndex, uint32& OutEndGridIndex)
+std::vector<char> AStarUtils::ReadScenario(const std::string& InFileName, uint32& OutStartGridIndex, uint32& OutEndGridIndex)
 {
     std::ifstream File;
     File.open(InFileName);

@@ -63,8 +63,6 @@ bool AStarWorker::DoWork()
     return false;
 }
 
-
-
 uint32 AStarWorker::GetResult(std::vector<uint32>& OutPath)
 {
     if (Result.valid() && Result.get())

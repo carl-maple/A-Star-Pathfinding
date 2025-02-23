@@ -29,6 +29,6 @@ namespace AStarUtils
 	std::vector<char> RandomizeMap(const uint32 InSizeX, const uint32 InSizeY);
 
 	void GenerateScenarios(const uint32 ScenariosToGenerate, const uint32 InSizeX, const uint32 InSizeY);
-	std::vector<char> ReadScenario(const std::string InFileName, uint32& OutStartGridIndex, uint32& OutEndGridIndex);
+	std::vector<char> ReadScenario(const std::string& InFileName, uint32& OutStartGridIndex, uint32& OutEndGridIndex);
 };
 
