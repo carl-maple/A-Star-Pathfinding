@@ -1,3 +1,5 @@
+#ifdef NEW_ASTAR_IMPL
+
 #include "AStarNodeList.h"
 #include "AStarNode.h"
 #include "AStarMap.h"
@@ -5,6 +7,78 @@
 #include "AStarWorker.h"
 
 #include <cmath>
+
+#if DEBUG
+#include "spdlog/spdlog.h"
+#endif
+
+AStarNodeList::AStarNodeList(const uint32 InSize, const AStarWorker* const InWorkerOwner)
+	: NumberOfItems(InSize)
+	, WorkerOwner(InWorkerOwner)
+	, List(InSize)
+{
+	
+}
+
+const AStarNode& AStarNodeList::GetAStarNode() const
+{
+	return List;
+}
+
+float AStarNodeList::ManhattanDistance(const SVector2Di& InCurrent, const SVector2Di& InGoal) const
+{
+	const int32 DeltaX = std::abs(InCurrent.x - InGoal.x);
+	const int32 DeltaY = std::abs(InCurrent.y - InGoal.y);
+	return 1.f * (DeltaX + DeltaY);
+}
+
+bool AStarNodeList::Populate(const uint32 InGridIndex, const uint32 InParentIndex)
+{
+	const AStarMap* const Map = WorkerOwner->GetMap();
+
+	if (List.State[InGridIndex] != EAStarNodeState::NONE)
+	{
+		return false;
+	}
+
+	List.Cost[InGridIndex] = ManhattanDistance(Map->GetGridPosition(InGridIndex)
+		, WorkerOwner->GetGoalPos());
+	List.State[InGridIndex] = EAStarNodeState::OPEN;
+	List.Parent[InGridIndex] = InParentIndex;
+
+#if DEBUG
+	auto logger = spdlog::get("basic_logger");
+	logger->info("----- POPULATE {} -----", InGridIndex);
+	logger->info("Parent: {}", InParentIndex);
+	logger->info("Cost: {}", List.Cost[InGridIndex]);
+#endif
+
+	return true;
+}
+
+void AStarNodeList::CloseNode(const uint32 InGridIndex)
+{
+	List.State[InGridIndex] = EAStarNodeState::CLOSED;
+}
+
+void AStarNodeList::Reset()
+{
+	List.Reset();
+}
+
+#else
+
+#include "AStarNodeList.h"
+#include "AStarNode.h"
+#include "AStarMap.h"
+#include "AStarOpenList.h"
+#include "AStarWorker.h"
+
+#include <cmath>
+
+#if DEBUG
+#include "spdlog/spdlog.h"
+#endif
 
 AStarNodeList::AStarNodeList(const uint32 InSize, const AStarWorker* const InWorkerOwner)
 	: NumberOfItems(InSize)
@@ -39,6 +113,13 @@ bool AStarNodeList::Populate(const uint32 InGridIndex, const uint32 InParentInde
 	List[InGridIndex].State = EAStarNodeState::OPEN;
 	List[InGridIndex].Parent = InParentIndex;
 
+#if DEBUG
+	auto logger = spdlog::get("basic_logger");
+	logger->info("----- POPULATE {} -----", InGridIndex);
+	logger->info("Parent: {}", InParentIndex);
+	logger->info("Cost: {}", List[InGridIndex].Cost);
+#endif
+
 	return true;
 }
 
@@ -54,3 +135,5 @@ void AStarNodeList::Reset()
 		Node.Reset();
 	}
 }
+
+#endif

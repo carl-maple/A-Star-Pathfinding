@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "Types.h"
 
 #include "memory"
@@ -26,5 +27,8 @@ namespace AStarUtils
 		, const std::vector<uint32>& InPath, std::vector<char> InPathDrawMap, int32 InCurrentIteration);
 
 	std::vector<char> RandomizeMap(const uint32 InSizeX, const uint32 InSizeY);
+
+	void GenerateScenarios(const uint32 ScenariosToGenerate, const uint32 InSizeX, const uint32 InSizeY);
+	std::vector<char> ReadScenario(const std::string InFileName, uint32& OutStartGridIndex, uint32& OutEndGridIndex);
 };
 

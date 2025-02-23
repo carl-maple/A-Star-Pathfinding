@@ -62,31 +62,26 @@ void AStarMap::PrintMap(const std::vector<char> InPathDrawMap
 		for (uint32 IndexX = 0; IndexX < InSizeX; IndexX++)
 		{
 			const uint16 GridIndex = GetGridIndex(IndexX, IndexY, InSizeY);
-			std::cout << std::string(1, InPathDrawMap[GridIndex]);
+			//std::cout << std::string(1, InPathDrawMap[GridIndex]);
 		}
 
-		std::cout << std::endl;
+		//std::cout << std::endl;
 	}
 }
 
-void AStarMap::WriteMapToFile(const std::vector<char> InPathDrawMap
-	, const uint32 InSizeX, const uint32 InSizeY, int32 InCurrentIteration)
+void AStarMap::WriteMapToFile(std::ofstream& InFile, const std::vector<char> InPathDrawMap
+	, const uint32 InSizeX, const uint32 InSizeY)
 {
-	std::ofstream myfile;
-	myfile.open("example_" + std::to_string(InCurrentIteration) + ".txt");
-	
 	for (uint32 IndexY = 0; IndexY < InSizeY; IndexY++)
 	{
 		for (uint32 IndexX = 0; IndexX < InSizeX; IndexX++)
 		{
 			const uint16 GridIndex = GetGridIndex(IndexX, IndexY, InSizeY);
-			myfile << std::string(1, InPathDrawMap[GridIndex]);
+			InFile << std::string(1, InPathDrawMap[GridIndex]);
 		}
 
-		myfile << std::endl;
+		InFile << std::endl;
 	}
-
-	myfile.close();
 }
 
 uint8 AStarMap::GetValueAtIndex(const uint16 InGridIndex) const
@@ -105,7 +100,7 @@ uint32 AStarMap::GetRandomValidGridIndex() const
 
 void AStarMap::GetRandomValidStartAndEndGridIndex(uint32& OutStartGridIndex, uint32& OutEndGridIndex) const
 {
-	auto TempValidPoints = ValidPoints;
+	std::vector<uint32> TempValidPoints = ValidPoints;
 	std::random_device RandomDevice;  // a seed source for the random number engine
 	std::shuffle(TempValidPoints.begin(), TempValidPoints.end(), RandomDevice);
 	OutStartGridIndex = TempValidPoints[0];

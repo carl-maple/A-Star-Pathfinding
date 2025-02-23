@@ -4,6 +4,8 @@
 #include "AStarNodeList.h"
 #include "AStarUtils.h"
 
+#include "iostream"
+
 AStarWorker::AStarWorker(const AStarMap* const InMap)
     :Map(InMap)
 {
@@ -40,10 +42,10 @@ bool AStarWorker::DoWork()
 {
     const uint32 StartGridIndex = Map->GetGridIndex(StartPos);
 
-    OpenList->Add(StartGridIndex);
+    OpenList->Add(StartGridIndex, 0.f);
     while (OpenList->GetNumberOfItems() != 0)
     {
-        const uint32 FirstGridIndex = OpenList->GetFirst();
+        const uint32 FirstGridIndex = OpenList->GetFirst().GridIndex;
 
         // Check if we are at our goal
         if (FirstGridIndex == Map->GetGridIndex(GoalPos))
@@ -52,7 +54,7 @@ bool AStarWorker::DoWork()
         }
 
         // Add each neighbour node to the open list
-        OpenList->PopulateNeighbours(FirstGridIndex, GoalPos);
+        OpenList->PopulateNeighbours(FirstGridIndex);
 
         // We are done with this node so we remove it
         OpenList->PopFirst();

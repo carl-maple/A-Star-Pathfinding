@@ -34,7 +34,7 @@ public:
 	static void PrintMap(const std::vector<char> InPathDrawMap
 		, const uint32 InSizeX, const uint32 InSizeY);
 
-	static void WriteMapToFile(const std::vector<char> InPathDrawMap, const uint32 InSizeX, const uint32 InSizeY, int32 InCurrentIteration);
+	static void WriteMapToFile(std::ofstream& InFile, const std::vector<char> InPathDrawMap, const uint32 InSizeX, const uint32 InSizeY);
 
 	const SVector2Di& GetMapSize() const { return MapSize; }
 	

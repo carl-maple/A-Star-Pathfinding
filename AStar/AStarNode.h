@@ -1,5 +1,38 @@
 #pragma once
 
+#ifdef NEW_ASTAR_IMPL
+
+
+#include <limits>
+#include "vector"
+
+#include "Types.h"
+#include "AStarDefs.h"
+
+enum class EAStarNodeState : uint8
+{
+	NONE,
+	OPEN,
+	CLOSED
+};
+
+namespace NStarNodeDefs
+{
+	constexpr uint32 INVALID_INDEX = std::numeric_limits<uint32>::max();
+}
+
+struct AStarNode
+{
+	AStarNode(const uint32 InSize);
+	void Reset();
+
+	std::vector<float> Cost;
+	std::vector<EAStarNodeState> State;
+	std::vector<uint32> Parent;
+};
+
+#else
+
 #include <limits>
 
 #include "Types.h"
@@ -31,3 +64,5 @@ struct AStarNode
 	uint32 Parent = NStarNodeDefs::INVALID_INDEX;
 };
 
+
+#endif
